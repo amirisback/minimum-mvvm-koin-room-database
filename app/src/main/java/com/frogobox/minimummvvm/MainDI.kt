@@ -1,6 +1,5 @@
 package com.frogobox.minimummvvm
 
-import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -21,7 +20,7 @@ import org.koin.dsl.module
 val viewModelModule = module {
 
     viewModel {
-        MainViewModel(androidApplication())
+        MainViewModel()
     }
 
     // Please Add Your Code Under This Line --------------------------------------------------------

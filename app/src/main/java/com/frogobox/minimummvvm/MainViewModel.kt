@@ -1,14 +1,8 @@
 package com.frogobox.minimummvvm
 
-import android.app.Application
-import android.util.Log
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
-import com.frogobox.minimummvvm.MainAdapter
-import com.frogobox.minimummvvm.MainData
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import androidx.lifecycle.ViewModel
 
 /*
  * Created by faisalamir on 08/02/22
@@ -23,10 +17,12 @@ import kotlinx.coroutines.launch
  *
  */
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+class MainViewModel : ViewModel() {
 
     private val data = mutableListOf<MainData>()
-    val listMainData = MutableLiveData<MutableList<MainData>>()
+
+    private var _listMainData = MutableLiveData<MutableList<MainData>>()
+    val listMainData: LiveData<MutableList<MainData>> = _listMainData
 
     fun setupData() {
         data.add(MainData("Faisal Amir", 24))
@@ -39,7 +35,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         data.add(MainData("Faisal Amir", 24))
         data.add(MainData("Faisal Amir", 24))
         data.add(MainData("Faisal Amir", 24))
-        listMainData.postValue(data)
+        _listMainData.postValue(data)
     }
 
 }
