@@ -5,6 +5,8 @@ plugins {
 }
 
 android {
+
+    namespace 'com.frogobox.minimummvvm'
     compileSdk 31
 
     defaultConfig {
@@ -36,6 +38,7 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11
     }
+
 
 }
 
